@@ -37,7 +37,8 @@ function ModalContainer(props: ModalContainerProps) {
     const { margin } = computedStyle;
 
     setStyleProps({ $width: `${width}px`, $margin: margin });
-  }, []);
+  }, [modalTargetEl]);
+
   return (
     <>
       {openModal && (
