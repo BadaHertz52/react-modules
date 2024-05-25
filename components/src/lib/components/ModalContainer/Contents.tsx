@@ -25,14 +25,13 @@ export const ModalContents = styled.div<ModalContentsStyleProps>`
   min-width: 50%;
   max-width: 90%;
   min-height: 1rem;
-  max-height: 90vw;
+  max-height: 90vh;
   background-color: ${({ $backgroundColor }) => $backgroundColor?.modal || BASIC_BACKGROUND_COLOR.modal};
   padding: ${({ $contentsPadding }) => $contentsPadding || BASIC_PADDING};
   position: relative;
   box-sizing: border-box;
 
   @media screen and (max-width: 435px) {
-    box-sizing: border-box;
     min-width: 80vw;
   }
 `;
