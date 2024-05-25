@@ -1,6 +1,6 @@
 {
   "name": "badahertz52-react-modules-components",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "createPortal을 사용한 모달 모듈 제공",
   "keywords": [
     "modal",
