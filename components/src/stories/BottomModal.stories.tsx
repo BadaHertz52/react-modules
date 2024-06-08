@@ -8,7 +8,7 @@ const meta: Meta<typeof BottomModal> = {
   title: 'Modal',
   component: BottomModal,
   argTypes: {
-    setOpenModal: {
+    closeModal: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const BottomModalSample: Story = {
   args: {
     openModal: true,
-    setOpenModal: () => {},
+    closeModal: () => {},
     modalTargetEl: null,
     children: (
       <>

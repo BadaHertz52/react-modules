@@ -24,7 +24,7 @@ const BottomModalContents = styled(ModalContents)<ModalContentsStyleProps>`
 `;
 
 function BottomModal(props: BottomModalProps) {
-  const { setOpenModal, children, ...rest } = props;
+  const { closeModal, children, ...rest } = props;
   const {
     isNeedAnimation = true,
     animationDuration = BASIC_BOTTOM_MODAL_ANIMATION_DURATION,
@@ -33,7 +33,6 @@ function BottomModal(props: BottomModalProps) {
     contentsPadding,
     openModal,
   } = rest;
-  const closeModal = () => setOpenModal(false);
 
   const { isOn, fadeOutModal, timeout } = useBottomModalAnimation({
     isNeedAnimation,

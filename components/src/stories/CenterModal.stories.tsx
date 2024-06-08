@@ -8,7 +8,7 @@ const meta: Meta<typeof CenterModal> = {
   title: 'Modal',
   component: CenterModal,
   argTypes: {
-    setOpenModal: {
+    closeModal: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const CenterModalSample: Story = {
   args: {
     openModal: true,
-    setOpenModal: () => {},
+    closeModal: () => {},
     modalTargetEl: null,
     children: (
       <>

@@ -13,10 +13,9 @@ const InputLabel = styled.label`
 `;
 
 export default function PromptModal(props: PromptModalProps) {
-  const { setOpenModal, title, label, input, buttonContainerJustifyContent = 'right', children } = props;
+  const { closeModal, title, label, input, buttonContainerJustifyContent = 'right', children } = props;
 
   const inputId = `prompt-modal__input-${useId()}`;
-  const closeModal = () => setOpenModal(false);
 
   return (
     <CenterModal {...props}>

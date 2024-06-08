@@ -17,3 +17,4 @@ export const BASIC_BUTTON_STYLE: CSSProperties = {
   color: 'black',
   fontSize: '1rem',
 };
+export const BASIC_BOX_SHADOW = '0px 0px 18px -4px rgba(0, 0, 0, 0.21)';

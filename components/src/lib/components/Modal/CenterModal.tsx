@@ -12,9 +12,8 @@ const CenterContentsWrapper = styled.div`
 `;
 
 export default function CenterModal(props: ModalCommonProps) {
-  const { setOpenModal, children, ...rest } = props;
+  const { closeModal, children, ...rest } = props;
 
-  const closeModal = () => setOpenModal(false);
   return (
     <ModalContainer {...rest} closeModal={closeModal}>
       <ModalContainer.Backdrop handleCloseModal={closeModal} />

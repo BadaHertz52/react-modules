@@ -11,8 +11,7 @@ import {
   PromptModal,
   ToastModal,
   usePosition,
-} from '../dist';
-
+} from './lib';
 import { BASIC_BORDER_RADIUS } from './lib/constants/modal';
 
 export const ModalTitle = styled.h2`
@@ -61,14 +60,14 @@ function App() {
       <button onClick={() => setOpenConfirmModal(true)}> confirm modal open</button>
       <button onClick={() => setOpenPromptModal(true)}> prompt modal open</button>
 
-      <BottomModal openModal={openBottomModal} setOpenModal={setOpenBottomModal} modalTargetEl={rootEl}>
+      <BottomModal openModal={openBottomModal} closeModal={() => setOpenBottomModal(false)} modalTargetEl={rootEl}>
         <h1>Bottom Modal</h1>
         <BottomModal.CloseButtonWrapper>
           <button>close</button>
         </BottomModal.CloseButtonWrapper>
       </BottomModal>
 
-      <CenterModal openModal={openCenterModal} setOpenModal={setOpenCenterModal} modalTargetEl={rootEl}>
+      <CenterModal openModal={openCenterModal} closeModal={() => setOpenCenterModal(false)} modalTargetEl={rootEl}>
         <h1>Center Modal</h1>
         <ModalContainer.CloseButtonWrapper>
           <button>close</button>
@@ -77,12 +76,13 @@ function App() {
 
       <ToastModal
         openModal={openToastModal}
-        setOpenModal={setOpenToastModal}
+        closeModal={() => setOpenToastModal(false)}
         modalTargetEl={rootEl}
         position={position}
         isNeedAnimation={true}
         backgroundColor={{ modal: 'rgb(248, 255, 188)' }}
         contentsPadding="1rem 0.875rem"
+        boxShadow=""
       >
         <div style={{ width: '300px', height: '2rem', textAlign: 'center' }}>
           <h2>toast modal</h2>
@@ -94,7 +94,7 @@ function App() {
 
       <AlertModal
         openModal={openAlertModal}
-        setOpenModal={setOpenAlertModal}
+        closeModal={() => setOpenAlertModal(false)}
         modalTargetEl={rootEl}
         title={<ModalTitle>alert modal</ModalTitle>}
         contents={
@@ -113,7 +113,7 @@ function App() {
 
       <ConfirmModal
         openModal={openConfirmModal}
-        setOpenModal={setOpenConfirmModal}
+        closeModal={() => setOpenConfirmModal(false)}
         modalTargetEl={rootEl}
         title={<ModalTitle>alert modal</ModalTitle>}
         contents={
@@ -129,7 +129,7 @@ function App() {
       </ConfirmModal>
       <PromptModal
         openModal={openPromptModal}
-        setOpenModal={setOpenPromptModal}
+        closeModal={() => setOpenPromptModal(false)}
         modalTargetEl={rootEl}
         title={<ModalTitle>alert modal</ModalTitle>}
         label="prompt modal"

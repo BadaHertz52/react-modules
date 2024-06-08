@@ -8,7 +8,7 @@ const meta: Meta<typeof PromptModal> = {
   title: 'Modal',
   component: PromptModal,
   argTypes: {
-    setOpenModal: {
+    closeModal: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const PromptModalSample: Story = {
   args: {
     openModal: true,
-    setOpenModal: () => {},
+    closeModal: () => {},
     modalTargetEl: null,
     title: <ModalTitle>alert modal</ModalTitle>,
     label: 'prompt modal',

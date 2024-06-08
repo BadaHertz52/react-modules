@@ -8,7 +8,7 @@ const meta: Meta<typeof ToastModal> = {
   title: 'Modal',
   component: ToastModal,
   argTypes: {
-    setOpenModal: {
+    closeModal: {
       table: {
         disable: true,
       },
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const ToastModalSample: Story = {
   args: {
     openModal: true,
-    setOpenModal: () => {},
+    closeModal: () => {},
     modalTargetEl: null,
     position: { top: '100', left: '100' },
     isNeedAnimation: true,

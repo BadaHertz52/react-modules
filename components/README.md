@@ -68,18 +68,24 @@ function Contents({ children }: { children: `ReactNode` }): JSX.Element;
 
 ```tsx
 const BASIC_BOTTOM_MODAL_ANIMATION_DURATION = 600;
+
 const BASIC_PADDING = '2rem 1.5rem';
+
 const BASIC_BORDER_RADIUS = '0.625rem';
+
 const BASIC_BACKGROUND_COLOR = {
   modal: '#ffff',
   backdrop: '#5959599b',
 };
+
 const BASIC_BUTTON_STYLE: CSSProperties = {
   padding: '0.625rem 0.875rem',
   backgroundColor: '#ffff',
   color: 'black',
   fontSize: '1rem',
 };
+
+const BASIC_BOX_SHADOW = '0px 0px 18px -4px rgba(0, 0, 0, 0.21)';
 ```
 
 ```ts
@@ -107,6 +113,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | buttonContainerJustifyContent | 버튼 컨테이너의 정렬 방식입니다.                                                                                                                                                                                                                                 | `ButtonContainerJustifyContent`     | Y         | -                        |
 | button                        | AlertModal의 버튼입니다.                                                                                                                                                                                                                                         | `ReactNode`                         | Y         | -                        |
 | modalTargetEl                 | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li> <li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                        |
+| boxShadow                     | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                    | `string`                            | N         | BASIC_BOX_SHADOW         |
 
 #### BottomModal
 
@@ -123,6 +130,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | animationDuration | 애니메이션의 지속 시간(밀리초)입니다.                                                                                                                                                                                                                           | `number`                            | N         | 600                   |
 | isNeedAnimation   | 애니메이션이 필요한지 여부를 결정합니다.                                                                                                                                                                                                                        | `boolean`                           | N         | `true`                |
 | modalTargetEl     | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li><li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                     |
+| boxShadow         | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                   | `string`                            | N         | BASIC_BOX_SHADOW      |
 
 #### CenterModal
 
@@ -137,6 +145,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | backgroundColor   | 모달과 배경의 배경색입니다.                                                                                                                                                                                                                                     | `Background`                        | N         | -                     |
 | children          | 모달의 내용입니다.                                                                                                                                                                                                                                              | `ReactNode`                         | Y         | -                     |
 | modalTargetEl     | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li><li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                     |
+| boxShadow         | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                   | `string`                            | N         | BASIC_BOX_SHADOW      |
 
 #### ConfirmModal
 
@@ -153,6 +162,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | buttonContainerJustifyContent | 버튼 컨테이너의 정렬 방식입니다.                                                                                                                                                                                                                                | `ButtonContainerJustifyContent`     | N         | -                        |
 | children                      | <ul><li>확인,취소 버튼으로 사용할 버튼들을 children으로 설정해주세요. </li><li>children안의 버튼이 클릭 되면 모달이 닫히는 기능이 작동합니다.</li></ul>                                                                                                         | `ReactNode`                         | Y         | -                        |
 | modalTargetEl                 | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li><li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                        |
+| boxShadow                     | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                   | `string`                            | N         | BASIC_BOX_SHADOW         |
 
 #### PromptModal
 
@@ -171,6 +181,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | label                         | 입력 필드의 레이블입니다.                                                                                                                                                                                                                                       | `string`                            | Y         | -                        |
 | input                         | 입력 필드의 구성입니다.                                                                                                                                                                                                                                         | `ReactElement<HTMLInputElement>`    | Y         | -                        |
 | modalTargetEl                 | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li><li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                        |
+| boxShadow                     | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                   | `string`                            | N         | BASIC_BOX_SHADOW         |
 
 #### TostModal
 
@@ -189,6 +200,7 @@ type`ButtonContainerJustifyContent` = 'center' | 'right' | 'left' | 'space-aroun
 | position          | 토스트 모달의 위치입니다.                                                                                                                                                                                                                                       | `ModalPosition`                     | Y         | -                        |
 | toastDuration     | 토스트 모달의 지속 시간(밀리초)입니다.                                                                                                                                                                                                                          | `number`                            | N         | 6000                     |
 | modalTargetEl     | <ul><li>모달이 띄워지는 element로, 모달의 너비,마진은 modalTargetEl의 너비와 마진값을 따릅니다.</li> <li>보통은 body 하위에 #root element가 있다면 이를 사용하시면 됩니다.</li><li>modalTargetEl의 값을 찾지 못하면 width은100vw, margin값은 0입니다.</li></ul> | `HTMLElement or null`               | Y         | -                        |
+| boxShadow         | 모달의 box shadow, box shadow을 사용하지 않으려면 빈문자열을 사용하면 됩니다.                                                                                                                                                                                   | `string`                            | N         | BASIC_BOX_SHADOW         |
 
 ### 제공하는 기능
 

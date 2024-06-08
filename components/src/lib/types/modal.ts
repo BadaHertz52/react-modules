@@ -1,4 +1,4 @@
-import { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 export type ModalType = 'center' | 'bottom' | 'toast';
 
@@ -18,18 +18,17 @@ export interface Background {
 export interface ModalCommonProps {
   modalTargetEl: HTMLElement | null;
   openModal: boolean;
-  setOpenModal: Dispatch<SetStateAction<boolean>>;
+  closeModal: () => void;
   isCloseOnEsc?: boolean;
   isCloseOnBackdrop?: boolean;
   contentsPadding?: string;
   borderRadius?: string;
   backgroundColor?: Background;
   children: ReactNode;
+  boxShadow?: string;
 }
 
-export interface ModalContainerProps extends Omit<ModalCommonProps, 'setOpenModal'>, AnimationProps {
-  closeModal: () => void;
-}
+export interface ModalContainerProps extends ModalCommonProps, AnimationProps {}
 
 export interface AnimationProps {
   animationDuration?: number; //단위:ms

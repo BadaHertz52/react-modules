@@ -9,7 +9,7 @@ const meta: Meta<typeof ConfirmModal> = {
   title: 'Modal',
   component: ConfirmModal,
   argTypes: {
-    setOpenModal: {
+    closeModal: {
       table: {
         disable: true,
       },
@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const ConfirmModalSample: Story = {
   args: {
     openModal: true,
-    setOpenModal: () => {},
+    closeModal: () => {},
     modalTargetEl: null,
     title: <ModalTitle>alert modal</ModalTitle>,
     contents: (

@@ -9,8 +9,6 @@ const ToastModalContents = styled(ModalContents)<ModalContentsStyleProps>`
   position: fixed;
   opacity: ${({ $isOn }) => ($isOn ? 1 : 0)};
   transition: opacity ${({ $timeout }) => $timeout}ms ease-in-out;
-  -webkit-box-shadow: 0px 0px 18px -4px rgba(0, 0, 0, 0.21);
-  box-shadow: 0px 0px 18px -4px rgba(0, 0, 0, 0.21);
   min-height: initial;
   width: fit-content;
   min-width: initial;
@@ -32,7 +30,7 @@ const ToastModalContents = styled(ModalContents)<ModalContentsStyleProps>`
 export default function ToastModal(props: ToastModalProps) {
   const {
     openModal,
-    setOpenModal,
+    closeModal,
     children,
     borderRadius,
     backgroundColor,
@@ -47,7 +45,6 @@ export default function ToastModal(props: ToastModalProps) {
     throw new Error('position을 지정해주세요.');
   }
 
-  const closeModal = () => setOpenModal(false);
   const { isOn, timeout } = useToastModalAnimation({
     closeModal,
     animationDuration,

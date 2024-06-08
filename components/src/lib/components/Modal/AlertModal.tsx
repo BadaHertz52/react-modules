@@ -4,9 +4,7 @@ import ButtonContainer from '@/lib/components/ButtonContainer';
 import { AlertModalProps } from '@/lib/types/modal';
 
 export default function AlertModal(props: AlertModalProps) {
-  const { setOpenModal, title, contents, buttonContainerJustifyContent = 'right', button } = props;
-
-  const closeModal = () => setOpenModal(false);
+  const { closeModal, title, contents, buttonContainerJustifyContent = 'right', button } = props;
 
   return (
     <CenterModal {...props}>
